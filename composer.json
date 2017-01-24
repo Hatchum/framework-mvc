@@ -1,0 +1,16 @@
+{
+    "name": "jason/framework-mvc",
+    "authors": [
+        {
+            "name": "dreudi13",
+            "email": "jason.tubiana@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Controllers\\": "app/controllers"
+        }
+    }
+}
