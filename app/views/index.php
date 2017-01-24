@@ -1,0 +1,1 @@
+<h1>Bonjour <?php $tuto['nom'] ?> !</h1>

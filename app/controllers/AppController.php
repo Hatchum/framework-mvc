@@ -1,13 +1,15 @@
 <?php
 
-namespace Controllers;
-
 class AppController
 {
+    var $vars = array();
 
-    public function __construct()
-    {
-
+    function set($d) {
+        $this->vars = array_merge($this->vars, $d);
     }
 
+    function render($filename) {
+        extract($this->vars);
+        require(APP.'views/'/*.get_class($this).'/'*/.$filename.'.php');
+    }
 }
