@@ -1,0 +1,30 @@
+{
+    "name": "framework-mvc",
+    "version": "1.0.0",
+    "description": "framework mvc php",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gogobango/framework-mvc.git"
+    },
+    "author": "Arthur Banckaert, Jason Tubiana, Clément Texier",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/gogobango/framework-mvc/issues"
+    },
+    "homepage": "https://github.com/gogobango/framework-mvc#readme",
+    "devDependencies": {
+        "browser-sync": "^2.18.5",
+        "gulp": "^3.9.1",
+        "gulp-autoprefixer": "^3.1.1",
+        "gulp-cssmin": "^0.1.7",
+        "gulp-group-css-media-queries": "^1.2.0",
+        "gulp-load-plugins": "^1.4.0",
+        "gulp-plumber": "^1.1.0",
+        "gulp-rename": "^1.2.2",
+        "gulp-sass": "^3.0.0"
+    }
+}
