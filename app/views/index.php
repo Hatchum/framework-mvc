@@ -1,1 +1,1 @@
-<h1>Bonjour <?php $tuto['nom'] ?> !</h1>
+<h1>Bonjour <?= $tuto['nom'] ?> !</h1>

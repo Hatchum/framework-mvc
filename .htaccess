@@ -1,2 +1,6 @@
+ErrorDocument 403 /errors/page_403.php
+ErrorDocument 404 /errors/page_404.php
+ErrorDocument 500 /errors/page_500.php
+
 RewriteEngine on
 RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?p=$1
