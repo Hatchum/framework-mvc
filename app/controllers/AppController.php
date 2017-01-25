@@ -1,5 +1,5 @@
 <?php
-
+//require('../settings/config.php');
 class AppController
 {
     var $vars = array();
@@ -10,6 +10,6 @@ class AppController
 
     function render($filename) {
         extract($this->vars);
-        require(APP.'views/'/*.get_class($this).'/'*/.$filename.'.php');
+        require(VIEWS.get_class($this).'/'.$filename.'.php');
     }
 }
