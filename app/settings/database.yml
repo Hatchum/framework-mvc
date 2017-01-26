@@ -1,0 +1,6 @@
+parameters:
+    database_type: mysql
+    database_host: localhost
+    database_name: framework
+    database_login: root
+    database_password: dreudi-13 

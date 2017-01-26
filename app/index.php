@@ -1,6 +1,11 @@
 <?php
+require_once __DIR__.'/../vendor/autoload.php';
+
+use App\DatabaseConnection;
+
     require('settings/config.php');
     require(CONTROLLERS.'AppController.php');
+    require(MODELS.'DatabaseConnection.php');
 
     if(isset($_GET['p']) && !empty($_GET['p'])) {
         $param = explode('/', $_GET['p']);
@@ -21,3 +26,6 @@
     else {
         require(VIEWS.'home.php');
     }
+
+$db = new DatabaseConnection();
+$db->getParams();;
