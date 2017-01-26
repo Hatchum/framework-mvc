@@ -34,12 +34,12 @@ gulp.task('sass', function() {
 gulp.task('default', ['sass'], function() {
     browserSync.init({
         //notify: false,
-        proxy: "localhost/lab/framework-mvc"
+        proxy: "localhost/framework-mvc"
     });
     gulp.watch('scss/**/*.scss', ['sass']).on('change', function(event) {
         console.log('le fichier '+ event.path +' a été modifié')
     });
-    gulp.watch('*.php').on('change', browserSync.reload).on('change', function(event) {
+    gulp.watch('**/*.php').on('change', browserSync.reload).on('change', function(event) {
         console.log('le fichier '+ event.path +' a été modifié' );
     });
 })
