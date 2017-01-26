@@ -16,7 +16,7 @@ class Routeur
             $param = explode('/', $route['p']);
             $controller = ucfirst($param[0]);
 
-            if(!array_key_exists($controller.'Controller', $this->controllers)){
+            if(!in_array($controller.'Controller', $this->controllers)){
                 require(ERRORS . 'page_404.php');
             }
             else {
