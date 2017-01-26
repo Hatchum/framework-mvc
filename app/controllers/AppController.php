@@ -10,6 +10,6 @@ class AppController
 
     function render($filename) {
         extract($this->vars);
-        require(VIEWS.get_class($this).'/'.$filename.'.php');
+        require(VIEWS.str_replace('Controller', '', get_class($this)).'/'.$filename.'.php');
     }
 }
