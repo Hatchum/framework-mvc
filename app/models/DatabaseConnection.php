@@ -1,19 +1,44 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use Symfony\Component\Yaml\Yaml;
-
+/**
+ * DatabaseConnection 
+ * 
+ * @package 
+ * @version $id$
+ * @copyright 1997-2005 The PHP Group
+ * @author Tobias Schlitt <toby@php.net> 
+ * @license PHP Version 3.0 {@link http://www.php.net/license/3_0.txt}
+ */
 class DatabaseConnection
 {
 
+    /**
+     * pdo 
+     * 
+     * @var mixed
+     * @access private
+     */
     private $pdo;
 
+    /**
+     * __construct 
+     * 
+     * @access public
+     * @return void
+     */
     public function __construct()
     {
         $this->dbConnection();
     }
 
+    /**
+     * dbConnection 
+     * 
+     * @access private
+     * @return void
+     */
     private function dbConnection()
     {
         try {
@@ -23,9 +48,16 @@ class DatabaseConnection
         } catch (Exception $e) {
             echo 'Erreur de connection';
         }
-
     }
 
+    /**
+     * query 
+     * 
+     * @param mixed $query 
+     * @param mixed $params 
+     * @access private
+     * @return void
+     */
     private function query($query, $params=null)
     {
         if (!empty($params)){
@@ -37,6 +69,15 @@ class DatabaseConnection
         return $req;
     }
 
+    /**
+     * select 
+     * 
+     * @param mixed $table 
+     * @param mixed $params 
+     * @param mixed $conditions 
+     * @access public
+     * @return void
+     */
     public function select($table, $params, $conditions=[])
     {
         if(!empty($conditions)){
@@ -47,6 +88,13 @@ class DatabaseConnection
         return $req;
     }
 
+    /**
+     * selectAll 
+     * 
+     * @param mixed $table 
+     * @access public
+     * @return void
+     */
     public function selectAll($table)
     {
         $req = $this->query("SELECT * FROM ".$table)->fetchAll();

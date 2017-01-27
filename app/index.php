@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__.'/../vendor/autoload.php';
 
-use App\DatabaseConnection;
+use App\Models\DatabaseConnection;
 use Symfony\Component\Yaml\Yaml;
 
     require('settings/config.php');
@@ -28,16 +28,9 @@ use Symfony\Component\Yaml\Yaml;
         require(VIEWS.'home.php');
     }
 
-//$db = new DatabaseConnection();
-//$db->getParams();;
-//var_dump($db->getParams());
-//var_dump($db->pdo);
-
-//var_dump($dbSettings['parameters']);
-
 $db = new DatabaseConnection();
 
-$res1 = $db->selectAll('test');
+$res1 = $db->selectAll('post');
 
 var_dump($res1);
 
