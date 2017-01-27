@@ -3,4 +3,4 @@
     require(CONTROLLERS.'Routeur.php');
 
     $routeur = new Routeur();
-    $routeur->routerReq($_GET);
+    $routeur->routerRequete(array_merge($_GET, $_POST));
