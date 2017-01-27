@@ -42,3 +42,5 @@ jspm_packages
 tags
 
 /vendor/
+
+app/settings/database.yml
