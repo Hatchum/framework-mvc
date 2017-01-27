@@ -39,7 +39,7 @@ gulp.task('default', ['sass'], function() {
     gulp.watch('scss/**/*.scss', ['sass']).on('change', function(event) {
         console.log('le fichier '+ event.path +' a été modifié')
     });
-    gulp.watch('**/*.php').on('change', browserSync.reload).on('change', function(event) {
+    gulp.watch('app/**/*.php').on('change', browserSync.reload).on('change', function(event) {
         console.log('le fichier '+ event.path +' a été modifié' );
     });
 })

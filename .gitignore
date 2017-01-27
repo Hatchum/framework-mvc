@@ -43,4 +43,6 @@ tags
 
 /vendor/
 
-/app/settings/database.yml
+
+app/settings/database.yml
+
