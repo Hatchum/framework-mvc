@@ -3,4 +3,4 @@ ErrorDocument 404 /errors/page_404.php
 ErrorDocument 500 /errors/page_500.php
 
 RewriteEngine on
-RewriteRule ^([a-zA-Z]*)/?([a-zA-Z]*)?/?([a-zA-Z0-9]*)?/?$ app/index.php?p=$1
+RewriteRule ^([a-zA-Z]*)/?([a-zA-Z]*)?/?([a-zA-Z0-9]*)?/?$ app/index.php?c=$1&a=$2&i=$3 [NC,L]
