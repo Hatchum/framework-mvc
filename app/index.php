@@ -11,7 +11,13 @@ use Symfony\Component\Yaml\Yaml;
     if(isset($_GET['p']) && !empty($_GET['p'])) {
         $param = explode('/', $_GET['p']);
         $controller = ucfirst($param[0]);
-        $action = $param[1];
+
+        if(!empty($param[1])) {
+            $action = $param[1];
+        }
+        else {
+            $action = 'index';
+        }
 
         require(CONTROLLERS.$controller.'Controller.php');
 
@@ -19,10 +25,12 @@ use Symfony\Component\Yaml\Yaml;
 
         $controller = new $callController();
 
-        if(method_exists($controller, $action))
+        if(method_exists($controller, $action)) {
             $controller->$action();
-        else
-            require(ERRORS.'page_404.php');
+        }
+        else {
+            require(ERRORS . 'page_404.php');
+        }
     }
     else {
         require(VIEWS.'home.php');
