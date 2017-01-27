@@ -1,36 +1,29 @@
 <?php
 
-//require('../settings/config.php');
+require(ASSETS.'Requete.php');
 require(CONTROLLERS.'AppController.php');
 
 class Routeur
 {
-    private $controllers = array();
-
-    public function __construct(){
-        array_push($this->controllers, "TutoController");
-    }
-
-    public function routerRequete($param) {
-        try {
-            if (isset($param) && !empty($param)) {
+    public function routerRequete() {
+        $requete = new Requete(array_merge($_GET, $_POST));
+        var_dump($requete);
+        $param = array_merge($_GET, $_POST);
+        if (isset($param) && !empty($param['c'])) {
+            try {
                 $this->envoiView($param);
-            } else {
-                require(VIEWS . 'home.php');
             }
-        }
-        catch(Exception $e) {
-            $this->gererErreur($e->getMessage());
+            catch (Exception $e) {
+                $this->gererErreur($e->getMessage());
+            }
+        } else {
+            require(VIEWS . 'home.php');
         }
     }
 
    public function envoiView(&$param) {
        $controller = ucfirst($param['c']);
-
-       if(!in_array($controller.'Controller', $this->controllers)){
-           $this->gererErreur('Le controller \''.$controller.'\' n\'exite pas');
-       }
-       else {
+       if (file_exists(CONTROLLERS . $controller . 'Controller.php')) {
            require(CONTROLLERS . $controller . 'Controller.php');
 
            $callController = $controller . 'Controller';
@@ -48,8 +41,11 @@ class Routeur
                $controller->$action();
            }
            else {
-               $this->gererErreur('La methode \''.$action.'\' n\'exite pas');
+               throw new Exception('La methode \'' . strtoupper($action) . '\' n\'exite pas dans \'' . $callController . '\'');
            }
+       }
+       else {
+           throw new Exception('Le controller \'' . strtoupper($controller) . '\' n\'exite pas');
        }
    }
 
